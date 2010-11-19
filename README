@@ -1,0 +1,17 @@
+A simple SWF-based OGG streamer that can be embedded in a website and
+controlled via JavaScript.
+
+This is a true streamer -- NOT a progressive downloader.
+
+No GUI of any kind is rendered, but a JavaScript interface is provided for
+controlling it.
+
+Most of this code is not mine:
+  * the stuff in com.automatastudios is probably from automatastudios.com,
+    though I can't find any reference to it there now. It came from the
+    [Alchemy library sample][alchemy]. I fixed some bugs in it that prevented
+    endless streaming of OGG files.
+  * oggvorbis.swc is a machine-converted AS3 bytecode version of
+    libogg + libvorbis and is licensed under the LGPL.
+
+  [alchemy]: http://labs.adobe.com/wiki/index.php/Alchemy:Libraries
