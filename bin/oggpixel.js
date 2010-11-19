@@ -1,5 +1,18 @@
+/**
+ * Oggpixel -- a JS library wrapping a SWF that streams OGG.
+ *
+ * Various callbacks can be defined to react to changes in the player state:
+ *     onReady: called after a successful `attach` call
+ *     onStart: called after a stream begins playing
+ *     onStop: called after a stream ends playing
+ */
 Oggpixel = function () {
 	var self = {};
+
+	/**
+	 * True if a stream is currently playing, false otherwise.
+	 */
+	self.playing = false;
 
 	/**
 	 * Attaches the Oggpixel wrapper to the specified HTML element ID.
@@ -55,7 +68,21 @@ Oggpixel = function () {
 	 */
 	self.getVolume = function (volume) {
 		return self.player.getVolume();
-	}
+	};
+
+	self._onStart = function () {
+		self.playing = true;
+		if (self.onStart) {
+			self.onStart();
+		}
+	};
+
+	self._onStop = function () {
+		self.playing = false;
+		if (self.onStop) {
+			self.onStop();
+		}
+	};
 
 	return self;
 }();

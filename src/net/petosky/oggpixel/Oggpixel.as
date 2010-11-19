@@ -57,7 +57,8 @@ package net.petosky.oggpixel {
 			if (_stream != null) {
 				_stream.close();
 				_channel.stop();
-			}			
+				ExternalInterface.call("Oggpixel._onStop");
+			}
 		}
 
 		public function setVolume(volume:Number):void {
@@ -72,6 +73,7 @@ package net.petosky.oggpixel {
 		
 		private function onDecoderInit(event:Event):void {
 			_channel = _decoder.play();
+			ExternalInterface.call("Oggpixel._onStart");
 		}
 		
 		private function onDecoderComplete(event:Event):void { }
