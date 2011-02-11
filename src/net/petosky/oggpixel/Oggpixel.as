@@ -21,7 +21,11 @@ package net.petosky.oggpixel {
 
 		public function Oggpixel() {
 			Security.allowDomain("*");
-			addEventListener(Event.ADDED_TO_STAGE, onStageInit);
+			if (stage) {
+				onStageInit(null);
+			} else {
+				addEventListener(Event.ADDED_TO_STAGE, onStageInit);
+			}
 		}
 
 		private function onStageInit(event:Event):void {
