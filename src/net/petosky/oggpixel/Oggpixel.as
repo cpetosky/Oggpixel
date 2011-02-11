@@ -36,8 +36,8 @@ package net.petosky.oggpixel {
 			_decoder.addEventListener(Event.COMPLETE, onDecoderComplete);
 			_decoder.addEventListener(IOErrorEvent.IO_ERROR, onDecoderIOError);
 
-			ExternalInterface.addCallback("play", play);
-			ExternalInterface.addCallback("stop", play);
+			ExternalInterface.addCallback("playStream", play);
+			ExternalInterface.addCallback("stopStream", stop);
 			ExternalInterface.addCallback("getVolume", getVolume);
 			ExternalInterface.addCallback("setVolume", setVolume);
 

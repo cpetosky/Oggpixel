@@ -45,7 +45,14 @@ Oggpixel = function () {
 	 *     url: the url to play.
 	 */
 	self.play = function (url) {
-		self.player.play(url);
+		self.player.playStream(url);
+	};
+
+	/**
+	 * Stop the currently playing stream.
+	 */
+	self.stop = function () {
+		self.player.stopStream();
 	};
 
 	/**
