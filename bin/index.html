@@ -1,6 +1,8 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 	<title>Oggpixel Test</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<script src="oggpixel.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		Oggpixel.onReady = function () {
@@ -15,17 +17,21 @@
 			Oggpixel.play(document.getElementById('stream').value);
 		}
 	</script>
+	<script type="text/javascript" src="swfobject.js"></script>
+	<script type="text/javascript">
+		var flashvars = {};
+		var params = {allowScriptAccess: "always"};
+		var attributes = {};
+		swfobject.embedSWF(
+				"oggpixel.swf", "oggpixel", "1", "1", "10.0.0",
+				"expressInstall.swf", flashvars, params, attributes);
+	</script>
 </head>
 <body>
-	<object id="oggpixel"
-			type="application/x-shockwave-flash"
-			data="oggpixel.swf"
-			width="1" height="1">
-		<param name="allowScriptAccess" value="always">
-	</object>
+	<div id="oggpixel"></div>
 	<input id="volume" type="text"></input>
 	<input type="button" value="Set Volume" onClick="testVolume()">
-	<br>
+	<br/>
 	<input id="stream" type="text" value="http://octosphere.com:8000/rainwave.ogg"></input>
 	<input type="button" value="Play" onClick="testPlay()">	
 </body>
